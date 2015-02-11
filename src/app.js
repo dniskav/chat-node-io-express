@@ -19,11 +19,16 @@ io.on('connection', function(client) {
   console.log('Client: ', '', 'connected' );
 
   //listen the client messages
-  client.on('msg', function(data) {
-    console.log(data);
+  client.on('msg', function(msg) {
+    client.broadcast.emit('msg', { name : client.nick, msg : msg});
+    client.emit('msg', { name : client.nick, msg : msg});
   });
 
-  client.emit('msg', {msg : 'Connected to chat'})
+  // setup the join method
+    client.on('join', function(name) {
+      client.nick = name;
+      client.emit('msg', {name : name, msg : 'Connected to chat'});
+    });
 });
 
 

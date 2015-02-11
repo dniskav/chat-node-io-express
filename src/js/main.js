@@ -4,12 +4,12 @@ var app = window.app || {};
 
 app.socket = io.connect('http://localhost:9090'); 
 
-app.sendMsg = function(name, msg) {
-  app.socket.emit('msg', {name : name, msg : msg});
+app.sendMsg = function(msg) {
+  app.socket.emit('msg', msg);
 }
 
 app.procMsg = function(data) {
-	var msg = $('<p></p>').addClass('bg-success').html(data.msg);
+	var msg = $('<p></p>').addClass('bg-success').html(data.name + ' : ' + data.msg);
 	app.chatContainer.append(msg);
 };
 
@@ -22,9 +22,14 @@ app.init = (function() {
   app.chatform.on('submit', function(e) {
     e.preventDefault();
 
-    var name = "dummy name",
-        msg = app.chatBox.val();
-    app.sendMsg(name, msg);
+    var msg = app.chatBox.val();
+    app.chatBox.val('')
+    app.sendMsg(msg);
   });
 
+  app.socket.on('connect', function() {
+    var nick = prompt('write your name');
+
+    app.socket.emit('join', nick);
+  });
 })();
