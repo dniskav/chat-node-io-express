@@ -2,16 +2,35 @@
 <html>
 	<head>
 		<title>Node chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 	</head>
 
   <body>
-    <h1>Node Chat</h1>
-    <div class="content">
-      <aside></aside>
-      <article class="main"></article>
+    <div class="content container">
+
+      <div  class="row ">
+        <h1 class="col-sx-12">Node Chat</h1>
+      </div>
+
+      <div class="row full-height">
+        <aside class="col-xs-2 full-height"></aside>
+        <section class="full-height col-xs-10">
+          <article id="msgWindow" class="main col-xs-10 full-height"></article>
+          <div class="col-xs-10">
+            <form id="chatform">
+              <input type="text" class="" id="chatBox">
+              <button type="submit">send</button>
+            </form>
+          </div>
+        </section>
+      </div>
+
     </div>
+
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

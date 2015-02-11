@@ -18,6 +18,11 @@ app.get('/', function(req, res) {
 io.on('connection', function(client) {
   console.log('Client: ', '', 'connected' );
 
+  //listen the client messages
+  client.on('msg', function(data) {
+    console.log(data);
+  });
+
   client.emit('msg', {msg : 'Connected to chat'})
 });
 

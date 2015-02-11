@@ -2,3 +2,11 @@ root {
 	margin: 0;
 	padding: 0;
 }
+
+.content {
+	height: 360px;
+}
+
+.full-height {
+	height: 100%;
+}
