@@ -1,0 +1,25 @@
+{
+  "name": "chat_node",
+  "version": "1.0.0",
+  "description": "A simpe nodejs chat with express, scoket.io and redis",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "na"
+  },
+  "keywords": [
+    "nodejs",
+    "chat"
+  ],
+  "author": "Dniskav",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.11.2",
+    "path": "^0.11.14",
+    "redis": "^0.12.1",
+    "socket.io": "^1.3.3"
+  }
+}
