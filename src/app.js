@@ -1,5 +1,5 @@
 'use strict';
-var express = require('express'),
+var express = require('express')(),
     views = '/views/',
     app = express(),
     redis = require('redis'),
