@@ -3,9 +3,10 @@ var express = require('express'),
     app = express(),
     server = require('http').Server(app),
     io = require('socket.io')(server),
-    views = '/views/',
-    redis = require('redis'),
-    client = redis.createClient();
+    views = '/views/'
+    // redis = require('redis'),
+    // client = redis.createClient()
+    ;
 
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/img', express.static(__dirname + '/img'));
